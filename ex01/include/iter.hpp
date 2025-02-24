@@ -3,12 +3,13 @@
 
 #include <iostream>
 
-template <typename T> void iter(T *address, int length, void (*f)(T &))
+template <typename T, typename F>
+void iter(T *address, int length, F func)
 {
-	if (!address || !f)
+	if (!address)
 		return ;
 	for (int i = 0; i < length; i++)
-		f(address[i]);
+		func(address[i]);
 }
 
 #endif
